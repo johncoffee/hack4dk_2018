@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%;height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="width: 100%;height: 100%; background: #000;margin: 0; overflow: hidden">
+
+<video class="main"           style="position:fixed; width: 100%;height: 100%;margin: 0;opacity: 0"></video>
+<video class="intro" autoplay style="position:fixed; width: 100%;height: 100%;margin: 0;" src="tv%20avis%20gammel/laerer/IngestFile-30065410.mp4"></video>
+
+<script type="module">
+  let lastIndex = 0
+
+  const data = [
+    'IngestFile-30026323.mp4',
+    'IngestFile-30026488.mp4',
+    'IngestFile-30033160.mp4',
+    'IngestFile-30054431.mp4',
+    'IngestFile-30055697.mp4',
+    'IngestFile-30057579.mp4',
+    'IngestFile-30058342.mp4',
+    'IngestFile-30058638.mp4',
+    'IngestFile-30062833.mp4',
+    'IngestFile-30062988.mp4',
+    'IngestFile-30063516.mp4',
+    'IngestFile-30063604.mp4',
+    'IngestFile-30063757.mp4',
+    'IngestFile-30065374.mp4',
+    'IngestFile-30065410.mp4',
+    'IngestFile-30065495.mp4',
+    'IngestFile-30432284.mp4',
+    'IngestFile-30432290.mp4',
+    'IngestFile-30432309.mp4',
+    'IngestFile-30432321.mp4',
+    'IngestFile-30432329.mp4',
+    'IngestFile-30432335.mp4',
+    'IngestFile-30432351.mp4',
+    'IngestFile-30432374.mp4',
+    'IngestFile-30432390.mp4',
+    'IngestFile-30432417.mp4',
+    'IngestFile-30432438.mp4',
+    'IngestFile-30432460.mp4',
+    'IngestFile-30432486.mp4',
+    'IngestFile-30432532.mp4',
+    'IngestFile-30432601.mp4',
+    'IngestFile-30432639.mp4',
+    'IngestFile-30432680.mp4',
+    'IngestFile-30432696.mp4',
+    'IngestFile-30432713.mp4',
+    'IngestFile-30432717.mp4',
+    'IngestFile-30432737.mp4',
+    'IngestFile-30432756.mp4',
+    'IngestFile-30432782.mp4',
+    'IngestFile-30432793.mp4',
+    'IngestFile-30432808.mp4',
+    'IngestFile-30432812.mp4',
+    'IngestFile-30432841.mp4',
+    'IngestFile-30432864.mp4',
+    'IngestFile-30432868.mp4',
+    'IngestFile-30432892.mp4',
+    'IngestFile-30432908.mp4',
+    'IngestFile-30432928.mp4',
+    'IngestFile-30432932.mp4',
+    'IngestFile-30432944.mp4',
+  ]
+
+  document.querySelector('.intro').addEventListener('playing', evt => {
+    evt.target.currentTime = 81
+    setTimeout(() => {
+      evt.target.style.display ='none'
+      evt.target.parentNode.removeChild(evt.target)
+      r()
+    },12000)
+  }, {once:true})
+
+  function r () {
+    const video = document.querySelector('.main')
+    let randIndex = lastIndex
+    while (randIndex === lastIndex) {
+      randIndex = Math.floor(data.length * Math.random())
+    }
+    lastIndex = randIndex
+
+    video.src = './tv avis gammel/' + data[randIndex]
+    video.style.opacity = '0'
+
+    video.addEventListener('loadedmetadata', () => {
+      video.currentTime = 2 + ((video.duration - 4) * Math.random())
+
+      video.addEventListener('seeked', ()=>video.style.opacity = '1', {once: true})
+      video.play().then(() => setTimeout(()=>r(), 666 + Math.random() * 666))
+    }, {once:true})
+  }
+
+  function bg () {
+    document.body.style.background = Math.random() > 0.5 ? "#fff" : "#000"
+    setTimeout(() => {
+      bg()
+    },66 + Math.random() * 66)
+  }
+  // bg()
+</script>
+
+</body>
+</html>

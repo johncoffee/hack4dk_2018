@@ -1,0 +1,24 @@
+{
+  "name": "yolo-video-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "foundation-sites": "^6.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johncoffee/hack4dk_2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johncoffee/hack4dk_2018/issues"
+  },
+  "homepage": "https://github.com/johncoffee/hack4dk_2018#readme"
+}
